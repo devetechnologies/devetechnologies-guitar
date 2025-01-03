@@ -7,7 +7,7 @@ from user.models import User
 from user.api.serializers.user_serializers import UserSerializer
 
 class UserViewSet(ModelViewSet):
-    serializer_class = UserSerializer
+    serializer_class = UserSerializer 
     queryset = None
 
     ''' def get_object(self,pk):

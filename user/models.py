@@ -5,6 +5,7 @@ from simple_history.models import HistoricalRecords
 
 
 class UserManager(BaseUserManager):
+    
     def _create_user(self, username, email, name, last_name, phone, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
             username=username,
@@ -39,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     '''image = models.ImageField(
         'Imagen de perfil', upload_to='perfil/', max_length=255, null=True, blank=True)'''
     is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=True)
     historical = HistoricalRecords()
     objects = UserManager()
 

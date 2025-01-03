@@ -3,6 +3,7 @@ from user.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+       # fields= '__all__'
         exclude = ('groups','user_permissions', 'last_login')
         extra_kwarrgs={
             'password':{'write_only': True}
@@ -16,7 +17,8 @@ class UserSerializer(serializers.ModelSerializer):
             email = validated_data['email'],
             name = validated_data['name'],
             last_name = validated_data['last_name'],
-            phone = validated_data['phone']
+            phone = validated_data['phone'],
+            password = validated_data['password']
 
         )
         return user
