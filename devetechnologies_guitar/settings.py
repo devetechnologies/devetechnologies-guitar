@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
+import cloudinary_storage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,13 +39,16 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
     "simple_history",
     "rest_framework",
+    "django.contrib.staticfiles",
+    "cloudinary_storage",
+    "cloudinary",
+   # "django.contrib.staticfiles",
     "user",
     "guitar",
     "base",
-    "buycar"
+    "buycar",
 
 ]
 
@@ -137,6 +142,29 @@ AUTH_USER_MODEL = 'user.User'
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+#STATICFILES_DIRS = [ BASE_DIR / 'static']
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+#MEDIA_ROOT = BASE_DIR / 'media'
+
+#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+        },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+}
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dj4lrju7v',
+    'API_KEY': '251593962153884',
+    'API_SECRET': 'NKwmwa83q_fo452-qf-f7rRBGEs'
+}
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -144,5 +172,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+
+#CLOUDINARY_URL='cloudinary://251593962153884:NKwmwa83q_fo452-qf-f7rRBGEs@dj4lrju7v'
+
+
 
 

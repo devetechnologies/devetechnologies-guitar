@@ -10,6 +10,6 @@ class GuitarViewSet(viewsets.ModelViewSet):
     serializer_class = GuitarSerializer
 
     # Optional: Add filtering, searching, or ordering if needed.
-    # Example:
+    # Example: 
     # def get_queryset(self):
     #     return Guitar.objects.filter(is_available=True)
