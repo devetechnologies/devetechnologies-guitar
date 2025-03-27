@@ -96,7 +96,8 @@ WSGI_APPLICATION = "devetechnologies_guitar.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
+        #'ENGINE': 'django.db.backends.mysql',
         'NAME': 'w5akhxc4ewatu5if',
         'USER': 'v9y1xb3p76csywqq',
         'PASSWORD': 'ibq5upsn9cuij0su',
